@@ -106,5 +106,7 @@ abstract class ModrinthClient {
 
 enum HashAlgorithm {
   sha1,
-  sha512,
+  sha512;
+
+  String toJson() => name;
 }
