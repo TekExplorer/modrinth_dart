@@ -51,6 +51,7 @@ enum ClientServerSide {
 
 enum ProjectType {
   mod,
-  dataPack,
-  resourcePack,
+  modpack,
+  datapack,
+  resourcepack,
 }

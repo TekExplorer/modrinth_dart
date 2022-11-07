@@ -85,6 +85,6 @@ const _$ClientServerSideEnumMap = {
 
 const _$ProjectTypeEnumMap = {
   ProjectType.mod: 'mod',
-  ProjectType.dataPack: 'dataPack',
-  ProjectType.resourcePack: 'resourcePack',
+  ProjectType.datapack: 'datapack',
+  ProjectType.resourcepack: 'resourcepack',
 };
