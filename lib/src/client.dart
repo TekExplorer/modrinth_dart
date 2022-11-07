@@ -15,18 +15,24 @@ part 'generated/client.g.dart';
 abstract class ModrinthClient {
   factory ModrinthClient(Dio dio, {String? baseUrl}) = _ModrinthClient;
 
-  factory ModrinthClient.create() {
+  factory ModrinthClient.create({
+    String userAgent = 'ModrinthDart/v1',
+    String? baseUrl,
+  }) {
     final dio = Dio();
     dio.interceptors.add(LogInterceptor());
     dio.options
-      ..headers[HttpHeaders.userAgentHeader] = 'ModrinthDart/v1'
+      ..headers[HttpHeaders.userAgentHeader] = userAgent
       ..headers[HttpHeaders.acceptHeader] = 'application/json'
       ..headers[HttpHeaders.contentTypeHeader] = 'application/json';
     return ModrinthClient(dio);
   }
-  //   /// Get account information.
-  // @GET('/api/client/account')
-  // Future<Fractal<User>> getAccountInfo();
+
+  factory ModrinthClient.staging({String userAgent = 'ModrinthDart/v1'}) =>
+      ModrinthClient.create(
+        userAgent: userAgent,
+        baseUrl: 'https://staging-api.modrinth.com/v2',
+      );
 
   @GET('/search')
   Future<SearchResults> search({

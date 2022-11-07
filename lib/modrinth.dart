@@ -1,7 +1,7 @@
 /// Support for doing something awesome.
 ///
 /// More dartdocs go here.
-library modrinth_api;
+library modrinth;
 
 export 'src/client.dart';
 export 'src/models/.errors.dart';
