@@ -11,17 +11,22 @@ and the Flutter guide for
 [developing packages and plugins](https://flutter.dev/developing-packages). 
 -->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+An API client for accessing Modrinth's api
 
 ## Features
 
-TODO: List what your package can do. Maybe include images, gifs, or videos.
+ - Search and download any free resource from Modrinth
 
 ## Getting started
 
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+Import by adding this to your dependencies:
+```yaml
+dependencies:
+  modrinth:
+    git: 
+      url: https://github.com/TekExplorer/modrinth_dart
+      ref: master
+```
 
 ## Usage
 
