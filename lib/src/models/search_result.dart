@@ -1,5 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'enums.dart';
+
 part '../generated/models/search_result.freezed.dart';
 part '../generated/models/search_result.g.dart';
 
@@ -47,11 +49,4 @@ enum ClientServerSide {
   required,
   optional,
   unsupported,
-}
-
-enum ProjectType {
-  mod,
-  modpack,
-  datapack,
-  resourcepack,
 }

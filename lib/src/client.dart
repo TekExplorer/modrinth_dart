@@ -1,26 +1,24 @@
 import 'dart:io';
 
 import 'package:dio/dio.dart';
+import 'package:modrinth/modrinth.dart';
 import 'package:retrofit/retrofit.dart';
-
-import 'models/dependencies_result.dart';
-import 'models/project.dart';
-import 'models/project_version.dart';
-import 'models/search_result.dart';
 
 part 'generated/client.g.dart';
 
 /// Pterodactyl API Client
 @RestApi(baseUrl: 'https://api.modrinth.com/v2')
 abstract class ModrinthClient {
+  static const _defaultUserAgent = 'ModrinthDart/v1';
+
   factory ModrinthClient(Dio dio, {String? baseUrl}) = _ModrinthClient;
 
-  factory ModrinthClient.create({
-    String userAgent = 'ModrinthDart/v1',
-    String? baseUrl,
+  factory ModrinthClient.production({
+    String userAgent = _defaultUserAgent,
+    bool log = false,
   }) {
     final dio = Dio();
-    dio.interceptors.add(LogInterceptor());
+    if (log) dio.interceptors.add(LogInterceptor());
     dio.options
       ..headers[HttpHeaders.userAgentHeader] = userAgent
       ..headers[HttpHeaders.acceptHeader] = 'application/json'
@@ -28,23 +26,30 @@ abstract class ModrinthClient {
     return ModrinthClient(dio);
   }
 
-  factory ModrinthClient.staging({String userAgent = 'ModrinthDart/v1'}) =>
-      ModrinthClient.create(
-        userAgent: userAgent,
-        baseUrl: 'https://staging-api.modrinth.com/v2',
-      );
+  factory ModrinthClient.staging({
+    String userAgent = _defaultUserAgent,
+    bool log = false,
+  }) {
+    final dio = Dio();
+    if (log) dio.interceptors.add(LogInterceptor());
+    dio.options
+      ..headers[HttpHeaders.userAgentHeader] = userAgent
+      ..headers[HttpHeaders.acceptHeader] = 'application/json'
+      ..headers[HttpHeaders.contentTypeHeader] = 'application/json';
+    return ModrinthClient(dio, baseUrl: 'https://staging.modrinth.com/api/v1');
+  }
 
   @GET('/search')
   Future<SearchResults> search({
     /// The query to search for
     @Query('query') required String query,
 
-    /// The recommended way of filtering search results. Learn more about using facets.
-    @Query('facets') String? facets,
+    /// The recommended way of filtering search results.
+    @Query('facets') SearchFacets? facets,
 
     /// The sorting method used for sorting search results
     /// Enum: "relevance" "downloads" "follows" "newest" "updated"
-    @Query('index') String? index,
+    @Query('index') SearchIndex? sort,
 
     /// The offset into the search. Skips this number of results
     @Query('offset') int? offset,
@@ -54,10 +59,12 @@ abstract class ModrinthClient {
 
     /// Example: filters=categories="fabric" AND (categories="technology" OR categories="utility")
     /// A list of filters relating to the properties of a project. Use filters when there isn't an available facet for your needs. More information
-    @Query('filters') String? filters,
+    @Deprecated('Not recommended by Modrinth, Use facets instead')
+    @Query('filters')
+        String? filters,
   });
 
-  @GET('/projects/{id}')
+  @GET('/project/{id}')
   Future<Project> getProject(
     /// The slug or id of the project
     @Path('id') String id,
@@ -69,20 +76,20 @@ abstract class ModrinthClient {
     @Query('ids') List<String> ids,
   );
 
-  @GET('/projects/{id}/dependencies')
+  @GET('/project/{id}/dependencies')
   Future<DependenciesResult> getProjectDependencies(
     /// The slug or id of the project
     @Path('id') String id,
   );
 
-  @GET('/projects/{id}/version')
-  Future<List<ProjectVersion>> getProjectVersions(
-    /// The slug or id of the project
-    @Path('id') String id,
-    @Query('loaders') List<String> loaders,
-    @Query('game_versions') List<String> gameVersions,
-    @Query('featured') bool featured,
-  );
+  /// [slug] The slug or id of the project
+  @GET('/project/{id}/version')
+  Future<List<ProjectVersion>> getProjectVersions({
+    @Path('id') required String slug,
+    @Query('loaders') ListQuery? loaders,
+    @Query('game_versions') ListQuery? gameVersions,
+    @Query('featured') bool? featured,
+  });
 
   @GET('/version/{id}')
   Future<ProjectVersion> getVersion(
@@ -102,11 +109,4 @@ abstract class ModrinthClient {
     @Path('hash') String hash,
     @Query('algorithm') HashAlgorithm algorithm,
   );
-}
-
-enum HashAlgorithm {
-  sha1,
-  sha512;
-
-  String toJson() => name;
 }

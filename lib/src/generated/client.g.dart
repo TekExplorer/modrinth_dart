@@ -24,7 +24,7 @@ class _ModrinthClient implements ModrinthClient {
   Future<SearchResults> search({
     required query,
     facets,
-    index,
+    sort,
     offset,
     limit,
     filters,
@@ -32,8 +32,8 @@ class _ModrinthClient implements ModrinthClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'query': query,
-      r'facets': facets,
-      r'index': index,
+      r'facets': facets?.toJson(),
+      r'index': sort?.toJson(),
       r'offset': offset,
       r'limit': limit,
       r'filters': filters,
@@ -72,7 +72,7 @@ class _ModrinthClient implements ModrinthClient {
     )
             .compose(
               _dio.options,
-              '/projects/${id}',
+              '/project/${id}',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -120,7 +120,7 @@ class _ModrinthClient implements ModrinthClient {
     )
             .compose(
               _dio.options,
-              '/projects/${id}/dependencies',
+              '/project/${id}/dependencies',
               queryParameters: queryParameters,
               data: _data,
             )
@@ -130,18 +130,19 @@ class _ModrinthClient implements ModrinthClient {
   }
 
   @override
-  Future<List<ProjectVersion>> getProjectVersions(
-    id,
+  Future<List<ProjectVersion>> getProjectVersions({
+    required slug,
     loaders,
     gameVersions,
     featured,
-  ) async {
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
       r'loaders': loaders,
       r'game_versions': gameVersions,
       r'featured': featured,
     };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio
@@ -152,7 +153,7 @@ class _ModrinthClient implements ModrinthClient {
     )
             .compose(
               _dio.options,
-              '/projects/${id}/version',
+              '/project/${slug}/version',
               queryParameters: queryParameters,
               data: _data,
             )

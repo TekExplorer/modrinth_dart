@@ -55,9 +55,9 @@ enum DependencyType {
 @freezed
 class ProjectVersionFile with _$ProjectVersionFile {
   const factory ProjectVersionFile({
-    required List<ProjectVersionFileHashes> hashes,
+    required ProjectVersionFileHashes hashes,
     required Uri url,
-    required String fileName,
+    required String filename,
     required bool primary,
     required int size,
   }) = _ProjectVersionFile;

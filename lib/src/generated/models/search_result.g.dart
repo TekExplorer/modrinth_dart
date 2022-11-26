@@ -63,7 +63,7 @@ Map<String, dynamic> _$$_SearchResultItemToJson(_$_SearchResultItem instance) =>
       'categories': instance.categories,
       'client_side': _$ClientServerSideEnumMap[instance.clientSide]!,
       'server_side': _$ClientServerSideEnumMap[instance.serverSide]!,
-      'project_type': _$ProjectTypeEnumMap[instance.projectType]!,
+      'project_type': instance.projectType.toJson(),
       'icon_url': instance.iconUrl?.toString(),
       'project_id': instance.projectId,
       'author': instance.author,
@@ -85,6 +85,7 @@ const _$ClientServerSideEnumMap = {
 
 const _$ProjectTypeEnumMap = {
   ProjectType.mod: 'mod',
+  ProjectType.modpack: 'modpack',
   ProjectType.datapack: 'datapack',
   ProjectType.resourcepack: 'resourcepack',
 };

@@ -83,12 +83,10 @@ const _$DependencyTypeEnumMap = {
 _$_ProjectVersionFile _$$_ProjectVersionFileFromJson(
         Map<String, dynamic> json) =>
     _$_ProjectVersionFile(
-      hashes: (json['hashes'] as List<dynamic>)
-          .map((e) =>
-              ProjectVersionFileHashes.fromJson(e as Map<String, dynamic>))
-          .toList(),
+      hashes: ProjectVersionFileHashes.fromJson(
+          json['hashes'] as Map<String, dynamic>),
       url: Uri.parse(json['url'] as String),
-      fileName: json['file_name'] as String,
+      filename: json['filename'] as String,
       primary: json['primary'] as bool,
       size: json['size'] as int,
     );
@@ -96,9 +94,9 @@ _$_ProjectVersionFile _$$_ProjectVersionFileFromJson(
 Map<String, dynamic> _$$_ProjectVersionFileToJson(
         _$_ProjectVersionFile instance) =>
     <String, dynamic>{
-      'hashes': instance.hashes.map((e) => e.toJson()).toList(),
+      'hashes': instance.hashes.toJson(),
       'url': instance.url.toString(),
-      'file_name': instance.fileName,
+      'filename': instance.filename,
       'primary': instance.primary,
       'size': instance.size,
     };

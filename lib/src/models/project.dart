@@ -1,5 +1,6 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 
+import 'enums.dart';
 import 'search_result.dart';
 
 part '../generated/models/project.freezed.dart';

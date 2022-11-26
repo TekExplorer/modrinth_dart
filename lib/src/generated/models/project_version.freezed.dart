@@ -675,10 +675,9 @@ ProjectVersionFile _$ProjectVersionFileFromJson(Map<String, dynamic> json) {
 
 /// @nodoc
 mixin _$ProjectVersionFile {
-  List<ProjectVersionFileHashes> get hashes =>
-      throw _privateConstructorUsedError;
+  ProjectVersionFileHashes get hashes => throw _privateConstructorUsedError;
   Uri get url => throw _privateConstructorUsedError;
-  String get fileName => throw _privateConstructorUsedError;
+  String get filename => throw _privateConstructorUsedError;
   bool get primary => throw _privateConstructorUsedError;
   int get size => throw _privateConstructorUsedError;
 
@@ -695,11 +694,13 @@ abstract class $ProjectVersionFileCopyWith<$Res> {
       _$ProjectVersionFileCopyWithImpl<$Res, ProjectVersionFile>;
   @useResult
   $Res call(
-      {List<ProjectVersionFileHashes> hashes,
+      {ProjectVersionFileHashes hashes,
       Uri url,
-      String fileName,
+      String filename,
       bool primary,
       int size});
+
+  $ProjectVersionFileHashesCopyWith<$Res> get hashes;
 }
 
 /// @nodoc
@@ -717,7 +718,7 @@ class _$ProjectVersionFileCopyWithImpl<$Res, $Val extends ProjectVersionFile>
   $Res call({
     Object? hashes = null,
     Object? url = null,
-    Object? fileName = null,
+    Object? filename = null,
     Object? primary = null,
     Object? size = null,
   }) {
@@ -725,14 +726,14 @@ class _$ProjectVersionFileCopyWithImpl<$Res, $Val extends ProjectVersionFile>
       hashes: null == hashes
           ? _value.hashes
           : hashes // ignore: cast_nullable_to_non_nullable
-              as List<ProjectVersionFileHashes>,
+              as ProjectVersionFileHashes,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as Uri,
-      fileName: null == fileName
-          ? _value.fileName
-          : fileName // ignore: cast_nullable_to_non_nullable
+      filename: null == filename
+          ? _value.filename
+          : filename // ignore: cast_nullable_to_non_nullable
               as String,
       primary: null == primary
           ? _value.primary
@@ -743,6 +744,14 @@ class _$ProjectVersionFileCopyWithImpl<$Res, $Val extends ProjectVersionFile>
           : size // ignore: cast_nullable_to_non_nullable
               as int,
     ) as $Val);
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $ProjectVersionFileHashesCopyWith<$Res> get hashes {
+    return $ProjectVersionFileHashesCopyWith<$Res>(_value.hashes, (value) {
+      return _then(_value.copyWith(hashes: value) as $Val);
+    });
   }
 }
 
@@ -755,11 +764,14 @@ abstract class _$$_ProjectVersionFileCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {List<ProjectVersionFileHashes> hashes,
+      {ProjectVersionFileHashes hashes,
       Uri url,
-      String fileName,
+      String filename,
       bool primary,
       int size});
+
+  @override
+  $ProjectVersionFileHashesCopyWith<$Res> get hashes;
 }
 
 /// @nodoc
@@ -775,22 +787,22 @@ class __$$_ProjectVersionFileCopyWithImpl<$Res>
   $Res call({
     Object? hashes = null,
     Object? url = null,
-    Object? fileName = null,
+    Object? filename = null,
     Object? primary = null,
     Object? size = null,
   }) {
     return _then(_$_ProjectVersionFile(
       hashes: null == hashes
-          ? _value._hashes
+          ? _value.hashes
           : hashes // ignore: cast_nullable_to_non_nullable
-              as List<ProjectVersionFileHashes>,
+              as ProjectVersionFileHashes,
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
               as Uri,
-      fileName: null == fileName
-          ? _value.fileName
-          : fileName // ignore: cast_nullable_to_non_nullable
+      filename: null == filename
+          ? _value.filename
+          : filename // ignore: cast_nullable_to_non_nullable
               as String,
       primary: null == primary
           ? _value.primary
@@ -808,27 +820,21 @@ class __$$_ProjectVersionFileCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_ProjectVersionFile implements _ProjectVersionFile {
   const _$_ProjectVersionFile(
-      {required final List<ProjectVersionFileHashes> hashes,
+      {required this.hashes,
       required this.url,
-      required this.fileName,
+      required this.filename,
       required this.primary,
-      required this.size})
-      : _hashes = hashes;
+      required this.size});
 
   factory _$_ProjectVersionFile.fromJson(Map<String, dynamic> json) =>
       _$$_ProjectVersionFileFromJson(json);
 
-  final List<ProjectVersionFileHashes> _hashes;
   @override
-  List<ProjectVersionFileHashes> get hashes {
-    // ignore: implicit_dynamic_type
-    return EqualUnmodifiableListView(_hashes);
-  }
-
+  final ProjectVersionFileHashes hashes;
   @override
   final Uri url;
   @override
-  final String fileName;
+  final String filename;
   @override
   final bool primary;
   @override
@@ -836,7 +842,7 @@ class _$_ProjectVersionFile implements _ProjectVersionFile {
 
   @override
   String toString() {
-    return 'ProjectVersionFile(hashes: $hashes, url: $url, fileName: $fileName, primary: $primary, size: $size)';
+    return 'ProjectVersionFile(hashes: $hashes, url: $url, filename: $filename, primary: $primary, size: $size)';
   }
 
   @override
@@ -844,23 +850,18 @@ class _$_ProjectVersionFile implements _ProjectVersionFile {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$_ProjectVersionFile &&
-            const DeepCollectionEquality().equals(other._hashes, _hashes) &&
+            (identical(other.hashes, hashes) || other.hashes == hashes) &&
             (identical(other.url, url) || other.url == url) &&
-            (identical(other.fileName, fileName) ||
-                other.fileName == fileName) &&
+            (identical(other.filename, filename) ||
+                other.filename == filename) &&
             (identical(other.primary, primary) || other.primary == primary) &&
             (identical(other.size, size) || other.size == size));
   }
 
   @JsonKey(ignore: true)
   @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(_hashes),
-      url,
-      fileName,
-      primary,
-      size);
+  int get hashCode =>
+      Object.hash(runtimeType, hashes, url, filename, primary, size);
 
   @JsonKey(ignore: true)
   @override
@@ -879,9 +880,9 @@ class _$_ProjectVersionFile implements _ProjectVersionFile {
 
 abstract class _ProjectVersionFile implements ProjectVersionFile {
   const factory _ProjectVersionFile(
-      {required final List<ProjectVersionFileHashes> hashes,
+      {required final ProjectVersionFileHashes hashes,
       required final Uri url,
-      required final String fileName,
+      required final String filename,
       required final bool primary,
       required final int size}) = _$_ProjectVersionFile;
 
@@ -889,11 +890,11 @@ abstract class _ProjectVersionFile implements ProjectVersionFile {
       _$_ProjectVersionFile.fromJson;
 
   @override
-  List<ProjectVersionFileHashes> get hashes;
+  ProjectVersionFileHashes get hashes;
   @override
   Uri get url;
   @override
-  String get fileName;
+  String get filename;
   @override
   bool get primary;
   @override
