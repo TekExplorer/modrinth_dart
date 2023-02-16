@@ -138,8 +138,8 @@ class _ModrinthClient implements ModrinthClient {
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
-      r'loaders': loaders,
-      r'game_versions': gameVersions,
+      r'loaders': loaders?.toJson(),
+      r'game_versions': gameVersions?.toJson(),
       r'featured': featured,
     };
     queryParameters.removeWhere((k, v) => v == null);

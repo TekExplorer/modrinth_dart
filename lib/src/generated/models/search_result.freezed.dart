@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of '../../models/search_result.dart';
 
@@ -145,6 +145,7 @@ class _$_SearchResults implements _SearchResults {
   final List<SearchResultItem> _hits;
   @override
   List<SearchResultItem> get hits {
+    if (_hits is EqualUnmodifiableListView) return _hits;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_hits);
   }
@@ -558,6 +559,7 @@ class _$_SearchResultItem implements _SearchResultItem {
   final List<String> _categories;
   @override
   List<String> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_categories);
   }
@@ -578,6 +580,8 @@ class _$_SearchResultItem implements _SearchResultItem {
   final List<String> _displayCategories;
   @override
   List<String> get displayCategories {
+    if (_displayCategories is EqualUnmodifiableListView)
+      return _displayCategories;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_displayCategories);
   }
@@ -587,6 +591,7 @@ class _$_SearchResultItem implements _SearchResultItem {
 //
   @override
   List<String> get versions {
+    if (_versions is EqualUnmodifiableListView) return _versions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_versions);
   }
@@ -605,6 +610,7 @@ class _$_SearchResultItem implements _SearchResultItem {
   final List<Uri> _gallery;
   @override
   List<Uri> get gallery {
+    if (_gallery is EqualUnmodifiableListView) return _gallery;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_gallery);
   }

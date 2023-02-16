@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of '../../models/project_version.dart';
 
@@ -301,6 +301,7 @@ class _$_ProjectVersion implements _ProjectVersion {
   final List<ProjectDependency> _dependencies;
   @override
   List<ProjectDependency> get dependencies {
+    if (_dependencies is EqualUnmodifiableListView) return _dependencies;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_dependencies);
   }
@@ -308,6 +309,7 @@ class _$_ProjectVersion implements _ProjectVersion {
   final List<String> _gameVersions;
   @override
   List<String> get gameVersions {
+    if (_gameVersions is EqualUnmodifiableListView) return _gameVersions;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_gameVersions);
   }
@@ -317,6 +319,7 @@ class _$_ProjectVersion implements _ProjectVersion {
   final List<String> _loaders;
   @override
   List<String> get loaders {
+    if (_loaders is EqualUnmodifiableListView) return _loaders;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_loaders);
   }
@@ -336,6 +339,7 @@ class _$_ProjectVersion implements _ProjectVersion {
   final List<ProjectVersionFile> _files;
   @override
   List<ProjectVersionFile> get files {
+    if (_files is EqualUnmodifiableListView) return _files;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_files);
   }

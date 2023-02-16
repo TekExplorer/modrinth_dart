@@ -1,7 +1,7 @@
 // coverage:ignore-file
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: type=lint
-// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target
+// ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides, invalid_annotation_target, unnecessary_question_mark
 
 part of '../../models/project.dart';
 
@@ -477,6 +477,7 @@ class _$_Project implements _Project {
   final List<String> _categories;
   @override
   List<String> get categories {
+    if (_categories is EqualUnmodifiableListView) return _categories;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_categories);
   }
@@ -495,6 +496,8 @@ class _$_Project implements _Project {
   final List<String> _additionalCategories;
   @override
   List<String> get additionalCategories {
+    if (_additionalCategories is EqualUnmodifiableListView)
+      return _additionalCategories;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_additionalCategories);
   }
@@ -512,6 +515,7 @@ class _$_Project implements _Project {
   List<DonationUrl>? get donationUrls {
     final value = _donationUrls;
     if (value == null) return null;
+    if (_donationUrls is EqualUnmodifiableListView) return _donationUrls;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(value);
   }
@@ -539,6 +543,7 @@ class _$_Project implements _Project {
   final List<GalleryItem> _gallery;
   @override
   List<GalleryItem> get gallery {
+    if (_gallery is EqualUnmodifiableListView) return _gallery;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_gallery);
   }
