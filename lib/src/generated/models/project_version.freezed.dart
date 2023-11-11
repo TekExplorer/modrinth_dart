@@ -155,11 +155,11 @@ class _$ProjectVersionCopyWithImpl<$Res, $Val extends ProjectVersion>
 }
 
 /// @nodoc
-abstract class _$$_ProjectVersionCopyWith<$Res>
+abstract class _$$ProjectVersionImplCopyWith<$Res>
     implements $ProjectVersionCopyWith<$Res> {
-  factory _$$_ProjectVersionCopyWith(
-          _$_ProjectVersion value, $Res Function(_$_ProjectVersion) then) =
-      __$$_ProjectVersionCopyWithImpl<$Res>;
+  factory _$$ProjectVersionImplCopyWith(_$ProjectVersionImpl value,
+          $Res Function(_$ProjectVersionImpl) then) =
+      __$$ProjectVersionImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -180,11 +180,11 @@ abstract class _$$_ProjectVersionCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProjectVersionCopyWithImpl<$Res>
-    extends _$ProjectVersionCopyWithImpl<$Res, _$_ProjectVersion>
-    implements _$$_ProjectVersionCopyWith<$Res> {
-  __$$_ProjectVersionCopyWithImpl(
-      _$_ProjectVersion _value, $Res Function(_$_ProjectVersion) _then)
+class __$$ProjectVersionImplCopyWithImpl<$Res>
+    extends _$ProjectVersionCopyWithImpl<$Res, _$ProjectVersionImpl>
+    implements _$$ProjectVersionImplCopyWith<$Res> {
+  __$$ProjectVersionImplCopyWithImpl(
+      _$ProjectVersionImpl _value, $Res Function(_$ProjectVersionImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -205,7 +205,7 @@ class __$$_ProjectVersionCopyWithImpl<$Res>
     Object? downloads = null,
     Object? files = null,
   }) {
-    return _then(_$_ProjectVersion(
+    return _then(_$ProjectVersionImpl(
       name: null == name
           ? _value.name
           : name // ignore: cast_nullable_to_non_nullable
@@ -268,8 +268,8 @@ class __$$_ProjectVersionCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProjectVersion implements _ProjectVersion {
-  const _$_ProjectVersion(
+class _$ProjectVersionImpl implements _ProjectVersion {
+  const _$ProjectVersionImpl(
       {required this.name,
       required this.versionNumber,
       this.changelog,
@@ -289,8 +289,8 @@ class _$_ProjectVersion implements _ProjectVersion {
         _loaders = loaders,
         _files = files;
 
-  factory _$_ProjectVersion.fromJson(Map<String, dynamic> json) =>
-      _$$_ProjectVersionFromJson(json);
+  factory _$ProjectVersionImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProjectVersionImplFromJson(json);
 
   @override
   final String name;
@@ -353,7 +353,7 @@ class _$_ProjectVersion implements _ProjectVersion {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProjectVersion &&
+            other is _$ProjectVersionImpl &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.versionNumber, versionNumber) ||
                 other.versionNumber == versionNumber) &&
@@ -402,12 +402,13 @@ class _$_ProjectVersion implements _ProjectVersion {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProjectVersionCopyWith<_$_ProjectVersion> get copyWith =>
-      __$$_ProjectVersionCopyWithImpl<_$_ProjectVersion>(this, _$identity);
+  _$$ProjectVersionImplCopyWith<_$ProjectVersionImpl> get copyWith =>
+      __$$ProjectVersionImplCopyWithImpl<_$ProjectVersionImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProjectVersionToJson(
+    return _$$ProjectVersionImplToJson(
       this,
     );
   }
@@ -428,10 +429,10 @@ abstract class _ProjectVersion implements ProjectVersion {
       required final String authorId,
       required final DateTime datePublished,
       required final int downloads,
-      required final List<ProjectVersionFile> files}) = _$_ProjectVersion;
+      required final List<ProjectVersionFile> files}) = _$ProjectVersionImpl;
 
   factory _ProjectVersion.fromJson(Map<String, dynamic> json) =
-      _$_ProjectVersion.fromJson;
+      _$ProjectVersionImpl.fromJson;
 
   @override
   String get name;
@@ -463,7 +464,7 @@ abstract class _ProjectVersion implements ProjectVersion {
   List<ProjectVersionFile> get files;
   @override
   @JsonKey(ignore: true)
-  _$$_ProjectVersionCopyWith<_$_ProjectVersion> get copyWith =>
+  _$$ProjectVersionImplCopyWith<_$ProjectVersionImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -537,11 +538,11 @@ class _$ProjectDependencyCopyWithImpl<$Res, $Val extends ProjectDependency>
 }
 
 /// @nodoc
-abstract class _$$_ProjectDependencyCopyWith<$Res>
+abstract class _$$ProjectDependencyImplCopyWith<$Res>
     implements $ProjectDependencyCopyWith<$Res> {
-  factory _$$_ProjectDependencyCopyWith(_$_ProjectDependency value,
-          $Res Function(_$_ProjectDependency) then) =
-      __$$_ProjectDependencyCopyWithImpl<$Res>;
+  factory _$$ProjectDependencyImplCopyWith(_$ProjectDependencyImpl value,
+          $Res Function(_$ProjectDependencyImpl) then) =
+      __$$ProjectDependencyImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -552,11 +553,11 @@ abstract class _$$_ProjectDependencyCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProjectDependencyCopyWithImpl<$Res>
-    extends _$ProjectDependencyCopyWithImpl<$Res, _$_ProjectDependency>
-    implements _$$_ProjectDependencyCopyWith<$Res> {
-  __$$_ProjectDependencyCopyWithImpl(
-      _$_ProjectDependency _value, $Res Function(_$_ProjectDependency) _then)
+class __$$ProjectDependencyImplCopyWithImpl<$Res>
+    extends _$ProjectDependencyCopyWithImpl<$Res, _$ProjectDependencyImpl>
+    implements _$$ProjectDependencyImplCopyWith<$Res> {
+  __$$ProjectDependencyImplCopyWithImpl(_$ProjectDependencyImpl _value,
+      $Res Function(_$ProjectDependencyImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -567,7 +568,7 @@ class __$$_ProjectDependencyCopyWithImpl<$Res>
     Object? fileName = freezed,
     Object? dependencyType = null,
   }) {
-    return _then(_$_ProjectDependency(
+    return _then(_$ProjectDependencyImpl(
       versionId: freezed == versionId
           ? _value.versionId
           : versionId // ignore: cast_nullable_to_non_nullable
@@ -590,15 +591,15 @@ class __$$_ProjectDependencyCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProjectDependency implements _ProjectDependency {
-  const _$_ProjectDependency(
+class _$ProjectDependencyImpl implements _ProjectDependency {
+  const _$ProjectDependencyImpl(
       {this.versionId,
       this.projectId,
       this.fileName,
       required this.dependencyType});
 
-  factory _$_ProjectDependency.fromJson(Map<String, dynamic> json) =>
-      _$$_ProjectDependencyFromJson(json);
+  factory _$ProjectDependencyImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProjectDependencyImplFromJson(json);
 
   @override
   final String? versionId;
@@ -618,7 +619,7 @@ class _$_ProjectDependency implements _ProjectDependency {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProjectDependency &&
+            other is _$ProjectDependencyImpl &&
             (identical(other.versionId, versionId) ||
                 other.versionId == versionId) &&
             (identical(other.projectId, projectId) ||
@@ -637,13 +638,13 @@ class _$_ProjectDependency implements _ProjectDependency {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProjectDependencyCopyWith<_$_ProjectDependency> get copyWith =>
-      __$$_ProjectDependencyCopyWithImpl<_$_ProjectDependency>(
+  _$$ProjectDependencyImplCopyWith<_$ProjectDependencyImpl> get copyWith =>
+      __$$ProjectDependencyImplCopyWithImpl<_$ProjectDependencyImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProjectDependencyToJson(
+    return _$$ProjectDependencyImplToJson(
       this,
     );
   }
@@ -654,10 +655,10 @@ abstract class _ProjectDependency implements ProjectDependency {
       {final String? versionId,
       final String? projectId,
       final String? fileName,
-      required final DependencyType dependencyType}) = _$_ProjectDependency;
+      required final DependencyType dependencyType}) = _$ProjectDependencyImpl;
 
   factory _ProjectDependency.fromJson(Map<String, dynamic> json) =
-      _$_ProjectDependency.fromJson;
+      _$ProjectDependencyImpl.fromJson;
 
   @override
   String? get versionId;
@@ -669,7 +670,7 @@ abstract class _ProjectDependency implements ProjectDependency {
   DependencyType get dependencyType;
   @override
   @JsonKey(ignore: true)
-  _$$_ProjectDependencyCopyWith<_$_ProjectDependency> get copyWith =>
+  _$$ProjectDependencyImplCopyWith<_$ProjectDependencyImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -760,11 +761,11 @@ class _$ProjectVersionFileCopyWithImpl<$Res, $Val extends ProjectVersionFile>
 }
 
 /// @nodoc
-abstract class _$$_ProjectVersionFileCopyWith<$Res>
+abstract class _$$ProjectVersionFileImplCopyWith<$Res>
     implements $ProjectVersionFileCopyWith<$Res> {
-  factory _$$_ProjectVersionFileCopyWith(_$_ProjectVersionFile value,
-          $Res Function(_$_ProjectVersionFile) then) =
-      __$$_ProjectVersionFileCopyWithImpl<$Res>;
+  factory _$$ProjectVersionFileImplCopyWith(_$ProjectVersionFileImpl value,
+          $Res Function(_$ProjectVersionFileImpl) then) =
+      __$$ProjectVersionFileImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -779,11 +780,11 @@ abstract class _$$_ProjectVersionFileCopyWith<$Res>
 }
 
 /// @nodoc
-class __$$_ProjectVersionFileCopyWithImpl<$Res>
-    extends _$ProjectVersionFileCopyWithImpl<$Res, _$_ProjectVersionFile>
-    implements _$$_ProjectVersionFileCopyWith<$Res> {
-  __$$_ProjectVersionFileCopyWithImpl(
-      _$_ProjectVersionFile _value, $Res Function(_$_ProjectVersionFile) _then)
+class __$$ProjectVersionFileImplCopyWithImpl<$Res>
+    extends _$ProjectVersionFileCopyWithImpl<$Res, _$ProjectVersionFileImpl>
+    implements _$$ProjectVersionFileImplCopyWith<$Res> {
+  __$$ProjectVersionFileImplCopyWithImpl(_$ProjectVersionFileImpl _value,
+      $Res Function(_$ProjectVersionFileImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -795,7 +796,7 @@ class __$$_ProjectVersionFileCopyWithImpl<$Res>
     Object? primary = null,
     Object? size = null,
   }) {
-    return _then(_$_ProjectVersionFile(
+    return _then(_$ProjectVersionFileImpl(
       hashes: null == hashes
           ? _value.hashes
           : hashes // ignore: cast_nullable_to_non_nullable
@@ -822,16 +823,16 @@ class __$$_ProjectVersionFileCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProjectVersionFile implements _ProjectVersionFile {
-  const _$_ProjectVersionFile(
+class _$ProjectVersionFileImpl implements _ProjectVersionFile {
+  const _$ProjectVersionFileImpl(
       {required this.hashes,
       required this.url,
       required this.filename,
       required this.primary,
       required this.size});
 
-  factory _$_ProjectVersionFile.fromJson(Map<String, dynamic> json) =>
-      _$$_ProjectVersionFileFromJson(json);
+  factory _$ProjectVersionFileImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProjectVersionFileImplFromJson(json);
 
   @override
   final ProjectVersionFileHashes hashes;
@@ -853,7 +854,7 @@ class _$_ProjectVersionFile implements _ProjectVersionFile {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProjectVersionFile &&
+            other is _$ProjectVersionFileImpl &&
             (identical(other.hashes, hashes) || other.hashes == hashes) &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.filename, filename) ||
@@ -870,13 +871,13 @@ class _$_ProjectVersionFile implements _ProjectVersionFile {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProjectVersionFileCopyWith<_$_ProjectVersionFile> get copyWith =>
-      __$$_ProjectVersionFileCopyWithImpl<_$_ProjectVersionFile>(
+  _$$ProjectVersionFileImplCopyWith<_$ProjectVersionFileImpl> get copyWith =>
+      __$$ProjectVersionFileImplCopyWithImpl<_$ProjectVersionFileImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProjectVersionFileToJson(
+    return _$$ProjectVersionFileImplToJson(
       this,
     );
   }
@@ -888,10 +889,10 @@ abstract class _ProjectVersionFile implements ProjectVersionFile {
       required final Uri url,
       required final String filename,
       required final bool primary,
-      required final int size}) = _$_ProjectVersionFile;
+      required final int size}) = _$ProjectVersionFileImpl;
 
   factory _ProjectVersionFile.fromJson(Map<String, dynamic> json) =
-      _$_ProjectVersionFile.fromJson;
+      _$ProjectVersionFileImpl.fromJson;
 
   @override
   ProjectVersionFileHashes get hashes;
@@ -905,7 +906,7 @@ abstract class _ProjectVersionFile implements ProjectVersionFile {
   int get size;
   @override
   @JsonKey(ignore: true)
-  _$$_ProjectVersionFileCopyWith<_$_ProjectVersionFile> get copyWith =>
+  _$$ProjectVersionFileImplCopyWith<_$ProjectVersionFileImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -965,24 +966,25 @@ class _$ProjectVersionFileHashesCopyWithImpl<$Res,
 }
 
 /// @nodoc
-abstract class _$$_ProjectVersionFileHashesCopyWith<$Res>
+abstract class _$$ProjectVersionFileHashesImplCopyWith<$Res>
     implements $ProjectVersionFileHashesCopyWith<$Res> {
-  factory _$$_ProjectVersionFileHashesCopyWith(
-          _$_ProjectVersionFileHashes value,
-          $Res Function(_$_ProjectVersionFileHashes) then) =
-      __$$_ProjectVersionFileHashesCopyWithImpl<$Res>;
+  factory _$$ProjectVersionFileHashesImplCopyWith(
+          _$ProjectVersionFileHashesImpl value,
+          $Res Function(_$ProjectVersionFileHashesImpl) then) =
+      __$$ProjectVersionFileHashesImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String sha512, String sha1});
 }
 
 /// @nodoc
-class __$$_ProjectVersionFileHashesCopyWithImpl<$Res>
+class __$$ProjectVersionFileHashesImplCopyWithImpl<$Res>
     extends _$ProjectVersionFileHashesCopyWithImpl<$Res,
-        _$_ProjectVersionFileHashes>
-    implements _$$_ProjectVersionFileHashesCopyWith<$Res> {
-  __$$_ProjectVersionFileHashesCopyWithImpl(_$_ProjectVersionFileHashes _value,
-      $Res Function(_$_ProjectVersionFileHashes) _then)
+        _$ProjectVersionFileHashesImpl>
+    implements _$$ProjectVersionFileHashesImplCopyWith<$Res> {
+  __$$ProjectVersionFileHashesImplCopyWithImpl(
+      _$ProjectVersionFileHashesImpl _value,
+      $Res Function(_$ProjectVersionFileHashesImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -991,7 +993,7 @@ class __$$_ProjectVersionFileHashesCopyWithImpl<$Res>
     Object? sha512 = null,
     Object? sha1 = null,
   }) {
-    return _then(_$_ProjectVersionFileHashes(
+    return _then(_$ProjectVersionFileHashesImpl(
       sha512: null == sha512
           ? _value.sha512
           : sha512 // ignore: cast_nullable_to_non_nullable
@@ -1006,11 +1008,12 @@ class __$$_ProjectVersionFileHashesCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProjectVersionFileHashes implements _ProjectVersionFileHashes {
-  const _$_ProjectVersionFileHashes({required this.sha512, required this.sha1});
+class _$ProjectVersionFileHashesImpl implements _ProjectVersionFileHashes {
+  const _$ProjectVersionFileHashesImpl(
+      {required this.sha512, required this.sha1});
 
-  factory _$_ProjectVersionFileHashes.fromJson(Map<String, dynamic> json) =>
-      _$$_ProjectVersionFileHashesFromJson(json);
+  factory _$ProjectVersionFileHashesImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProjectVersionFileHashesImplFromJson(json);
 
   @override
   final String sha512;
@@ -1026,7 +1029,7 @@ class _$_ProjectVersionFileHashes implements _ProjectVersionFileHashes {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProjectVersionFileHashes &&
+            other is _$ProjectVersionFileHashesImpl &&
             (identical(other.sha512, sha512) || other.sha512 == sha512) &&
             (identical(other.sha1, sha1) || other.sha1 == sha1));
   }
@@ -1038,13 +1041,13 @@ class _$_ProjectVersionFileHashes implements _ProjectVersionFileHashes {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProjectVersionFileHashesCopyWith<_$_ProjectVersionFileHashes>
-      get copyWith => __$$_ProjectVersionFileHashesCopyWithImpl<
-          _$_ProjectVersionFileHashes>(this, _$identity);
+  _$$ProjectVersionFileHashesImplCopyWith<_$ProjectVersionFileHashesImpl>
+      get copyWith => __$$ProjectVersionFileHashesImplCopyWithImpl<
+          _$ProjectVersionFileHashesImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProjectVersionFileHashesToJson(
+    return _$$ProjectVersionFileHashesImplToJson(
       this,
     );
   }
@@ -1053,10 +1056,10 @@ class _$_ProjectVersionFileHashes implements _ProjectVersionFileHashes {
 abstract class _ProjectVersionFileHashes implements ProjectVersionFileHashes {
   const factory _ProjectVersionFileHashes(
       {required final String sha512,
-      required final String sha1}) = _$_ProjectVersionFileHashes;
+      required final String sha1}) = _$ProjectVersionFileHashesImpl;
 
   factory _ProjectVersionFileHashes.fromJson(Map<String, dynamic> json) =
-      _$_ProjectVersionFileHashes.fromJson;
+      _$ProjectVersionFileHashesImpl.fromJson;
 
   @override
   String get sha512;
@@ -1064,6 +1067,6 @@ abstract class _ProjectVersionFileHashes implements ProjectVersionFileHashes {
   String get sha1;
   @override
   @JsonKey(ignore: true)
-  _$$_ProjectVersionFileHashesCopyWith<_$_ProjectVersionFileHashes>
+  _$$ProjectVersionFileHashesImplCopyWith<_$ProjectVersionFileHashesImpl>
       get copyWith => throw _privateConstructorUsedError;
 }

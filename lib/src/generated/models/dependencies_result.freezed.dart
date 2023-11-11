@@ -68,22 +68,22 @@ class _$DependenciesResultCopyWithImpl<$Res, $Val extends DependenciesResult>
 }
 
 /// @nodoc
-abstract class _$$_DependenciesResultCopyWith<$Res>
+abstract class _$$DependenciesResultImplCopyWith<$Res>
     implements $DependenciesResultCopyWith<$Res> {
-  factory _$$_DependenciesResultCopyWith(_$_DependenciesResult value,
-          $Res Function(_$_DependenciesResult) then) =
-      __$$_DependenciesResultCopyWithImpl<$Res>;
+  factory _$$DependenciesResultImplCopyWith(_$DependenciesResultImpl value,
+          $Res Function(_$DependenciesResultImpl) then) =
+      __$$DependenciesResultImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({List<Project> projects, List<ProjectVersion> versions});
 }
 
 /// @nodoc
-class __$$_DependenciesResultCopyWithImpl<$Res>
-    extends _$DependenciesResultCopyWithImpl<$Res, _$_DependenciesResult>
-    implements _$$_DependenciesResultCopyWith<$Res> {
-  __$$_DependenciesResultCopyWithImpl(
-      _$_DependenciesResult _value, $Res Function(_$_DependenciesResult) _then)
+class __$$DependenciesResultImplCopyWithImpl<$Res>
+    extends _$DependenciesResultCopyWithImpl<$Res, _$DependenciesResultImpl>
+    implements _$$DependenciesResultImplCopyWith<$Res> {
+  __$$DependenciesResultImplCopyWithImpl(_$DependenciesResultImpl _value,
+      $Res Function(_$DependenciesResultImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_DependenciesResultCopyWithImpl<$Res>
     Object? projects = null,
     Object? versions = null,
   }) {
-    return _then(_$_DependenciesResult(
+    return _then(_$DependenciesResultImpl(
       projects: null == projects
           ? _value._projects
           : projects // ignore: cast_nullable_to_non_nullable
@@ -107,15 +107,15 @@ class __$$_DependenciesResultCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DependenciesResult implements _DependenciesResult {
-  const _$_DependenciesResult(
+class _$DependenciesResultImpl implements _DependenciesResult {
+  const _$DependenciesResultImpl(
       {required final List<Project> projects,
       required final List<ProjectVersion> versions})
       : _projects = projects,
         _versions = versions;
 
-  factory _$_DependenciesResult.fromJson(Map<String, dynamic> json) =>
-      _$$_DependenciesResultFromJson(json);
+  factory _$DependenciesResultImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DependenciesResultImplFromJson(json);
 
   final List<Project> _projects;
   @override
@@ -142,7 +142,7 @@ class _$_DependenciesResult implements _DependenciesResult {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DependenciesResult &&
+            other is _$DependenciesResultImpl &&
             const DeepCollectionEquality().equals(other._projects, _projects) &&
             const DeepCollectionEquality().equals(other._versions, _versions));
   }
@@ -157,13 +157,13 @@ class _$_DependenciesResult implements _DependenciesResult {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DependenciesResultCopyWith<_$_DependenciesResult> get copyWith =>
-      __$$_DependenciesResultCopyWithImpl<_$_DependenciesResult>(
+  _$$DependenciesResultImplCopyWith<_$DependenciesResultImpl> get copyWith =>
+      __$$DependenciesResultImplCopyWithImpl<_$DependenciesResultImpl>(
           this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DependenciesResultToJson(
+    return _$$DependenciesResultImplToJson(
       this,
     );
   }
@@ -172,10 +172,10 @@ class _$_DependenciesResult implements _DependenciesResult {
 abstract class _DependenciesResult implements DependenciesResult {
   const factory _DependenciesResult(
       {required final List<Project> projects,
-      required final List<ProjectVersion> versions}) = _$_DependenciesResult;
+      required final List<ProjectVersion> versions}) = _$DependenciesResultImpl;
 
   factory _DependenciesResult.fromJson(Map<String, dynamic> json) =
-      _$_DependenciesResult.fromJson;
+      _$DependenciesResultImpl.fromJson;
 
   @override
   List<Project> get projects;
@@ -183,6 +183,6 @@ abstract class _DependenciesResult implements DependenciesResult {
   List<ProjectVersion> get versions;
   @override
   @JsonKey(ignore: true)
-  _$$_DependenciesResultCopyWith<_$_DependenciesResult> get copyWith =>
+  _$$DependenciesResultImplCopyWith<_$DependenciesResultImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

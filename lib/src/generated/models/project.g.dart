@@ -6,7 +6,8 @@ part of '../../models/project.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_Project _$$_ProjectFromJson(Map<String, dynamic> json) => _$_Project(
+_$ProjectImpl _$$ProjectImplFromJson(Map<String, dynamic> json) =>
+    _$ProjectImpl(
       slug: json['slug'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
@@ -55,7 +56,7 @@ _$_Project _$$_ProjectFromJson(Map<String, dynamic> json) => _$_Project(
           .toList(),
     );
 
-Map<String, dynamic> _$$_ProjectToJson(_$_Project instance) =>
+Map<String, dynamic> _$$ProjectImplToJson(_$ProjectImpl instance) =>
     <String, dynamic>{
       'slug': instance.slug,
       'title': instance.title,
@@ -108,29 +109,29 @@ const _$ProjectStatusEnumMap = {
   ProjectStatus.unknown: 'unknown',
 };
 
-_$_DonationUrl _$$_DonationUrlFromJson(Map<String, dynamic> json) =>
-    _$_DonationUrl(
+_$DonationUrlImpl _$$DonationUrlImplFromJson(Map<String, dynamic> json) =>
+    _$DonationUrlImpl(
       id: json['id'] as String,
       platform: json['platform'] as String,
       url: Uri.parse(json['url'] as String),
     );
 
-Map<String, dynamic> _$$_DonationUrlToJson(_$_DonationUrl instance) =>
+Map<String, dynamic> _$$DonationUrlImplToJson(_$DonationUrlImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'platform': instance.platform,
       'url': instance.url.toString(),
     };
 
-_$_GalleryItem _$$_GalleryItemFromJson(Map<String, dynamic> json) =>
-    _$_GalleryItem(
+_$GalleryItemImpl _$$GalleryItemImplFromJson(Map<String, dynamic> json) =>
+    _$GalleryItemImpl(
       url: Uri.parse(json['url'] as String),
       featured: json['featured'] as bool,
       description: json['description'] as String,
       created: json['created'] as String,
     );
 
-Map<String, dynamic> _$$_GalleryItemToJson(_$_GalleryItem instance) =>
+Map<String, dynamic> _$$GalleryItemImplToJson(_$GalleryItemImpl instance) =>
     <String, dynamic>{
       'url': instance.url.toString(),
       'featured': instance.featured,
@@ -138,14 +139,15 @@ Map<String, dynamic> _$$_GalleryItemToJson(_$_GalleryItem instance) =>
       'created': instance.created,
     };
 
-_$_ProjectLicense _$$_ProjectLicenseFromJson(Map<String, dynamic> json) =>
-    _$_ProjectLicense(
+_$ProjectLicenseImpl _$$ProjectLicenseImplFromJson(Map<String, dynamic> json) =>
+    _$ProjectLicenseImpl(
       id: json['id'] as String,
       name: json['name'] as String,
       url: json['url'] as String,
     );
 
-Map<String, dynamic> _$$_ProjectLicenseToJson(_$_ProjectLicense instance) =>
+Map<String, dynamic> _$$ProjectLicenseImplToJson(
+        _$ProjectLicenseImpl instance) =>
     <String, dynamic>{
       'id': instance.id,
       'name': instance.name,

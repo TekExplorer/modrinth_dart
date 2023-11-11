@@ -6,8 +6,8 @@ part of '../../models/project_version.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_ProjectVersion _$$_ProjectVersionFromJson(Map<String, dynamic> json) =>
-    _$_ProjectVersion(
+_$ProjectVersionImpl _$$ProjectVersionImplFromJson(Map<String, dynamic> json) =>
+    _$ProjectVersionImpl(
       name: json['name'] as String,
       versionNumber: json['version_number'] as String,
       changelog: json['changelog'] as String?,
@@ -31,7 +31,8 @@ _$_ProjectVersion _$$_ProjectVersionFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_ProjectVersionToJson(_$_ProjectVersion instance) =>
+Map<String, dynamic> _$$ProjectVersionImplToJson(
+        _$ProjectVersionImpl instance) =>
     <String, dynamic>{
       'name': instance.name,
       'version_number': instance.versionNumber,
@@ -55,8 +56,9 @@ const _$VersionTypeEnumMap = {
   VersionType.alpha: 'alpha',
 };
 
-_$_ProjectDependency _$$_ProjectDependencyFromJson(Map<String, dynamic> json) =>
-    _$_ProjectDependency(
+_$ProjectDependencyImpl _$$ProjectDependencyImplFromJson(
+        Map<String, dynamic> json) =>
+    _$ProjectDependencyImpl(
       versionId: json['version_id'] as String?,
       projectId: json['project_id'] as String?,
       fileName: json['file_name'] as String?,
@@ -64,8 +66,8 @@ _$_ProjectDependency _$$_ProjectDependencyFromJson(Map<String, dynamic> json) =>
           $enumDecode(_$DependencyTypeEnumMap, json['dependency_type']),
     );
 
-Map<String, dynamic> _$$_ProjectDependencyToJson(
-        _$_ProjectDependency instance) =>
+Map<String, dynamic> _$$ProjectDependencyImplToJson(
+        _$ProjectDependencyImpl instance) =>
     <String, dynamic>{
       'version_id': instance.versionId,
       'project_id': instance.projectId,
@@ -80,9 +82,9 @@ const _$DependencyTypeEnumMap = {
   DependencyType.embedded: 'embedded',
 };
 
-_$_ProjectVersionFile _$$_ProjectVersionFileFromJson(
+_$ProjectVersionFileImpl _$$ProjectVersionFileImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ProjectVersionFile(
+    _$ProjectVersionFileImpl(
       hashes: ProjectVersionFileHashes.fromJson(
           json['hashes'] as Map<String, dynamic>),
       url: Uri.parse(json['url'] as String),
@@ -91,8 +93,8 @@ _$_ProjectVersionFile _$$_ProjectVersionFileFromJson(
       size: json['size'] as int,
     );
 
-Map<String, dynamic> _$$_ProjectVersionFileToJson(
-        _$_ProjectVersionFile instance) =>
+Map<String, dynamic> _$$ProjectVersionFileImplToJson(
+        _$ProjectVersionFileImpl instance) =>
     <String, dynamic>{
       'hashes': instance.hashes.toJson(),
       'url': instance.url.toString(),
@@ -101,15 +103,15 @@ Map<String, dynamic> _$$_ProjectVersionFileToJson(
       'size': instance.size,
     };
 
-_$_ProjectVersionFileHashes _$$_ProjectVersionFileHashesFromJson(
+_$ProjectVersionFileHashesImpl _$$ProjectVersionFileHashesImplFromJson(
         Map<String, dynamic> json) =>
-    _$_ProjectVersionFileHashes(
+    _$ProjectVersionFileHashesImpl(
       sha512: json['sha512'] as String,
       sha1: json['sha1'] as String,
     );
 
-Map<String, dynamic> _$$_ProjectVersionFileHashesToJson(
-        _$_ProjectVersionFileHashes instance) =>
+Map<String, dynamic> _$$ProjectVersionFileHashesImplToJson(
+        _$ProjectVersionFileHashesImpl instance) =>
     <String, dynamic>{
       'sha512': instance.sha512,
       'sha1': instance.sha1,

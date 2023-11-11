@@ -6,9 +6,9 @@ part of '../../models/dependencies_result.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DependenciesResult _$$_DependenciesResultFromJson(
+_$DependenciesResultImpl _$$DependenciesResultImplFromJson(
         Map<String, dynamic> json) =>
-    _$_DependenciesResult(
+    _$DependenciesResultImpl(
       projects: (json['projects'] as List<dynamic>)
           .map((e) => Project.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -17,8 +17,8 @@ _$_DependenciesResult _$$_DependenciesResultFromJson(
           .toList(),
     );
 
-Map<String, dynamic> _$$_DependenciesResultToJson(
-        _$_DependenciesResult instance) =>
+Map<String, dynamic> _$$DependenciesResultImplToJson(
+        _$DependenciesResultImpl instance) =>
     <String, dynamic>{
       'projects': instance.projects.map((e) => e.toJson()).toList(),
       'versions': instance.versions.map((e) => e.toJson()).toList(),

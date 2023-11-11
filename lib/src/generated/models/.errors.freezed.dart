@@ -68,22 +68,22 @@ class _$ModrinthErrorCopyWithImpl<$Res, $Val extends ModrinthError>
 }
 
 /// @nodoc
-abstract class _$$_ModrinthErrorCopyWith<$Res>
+abstract class _$$ModrinthErrorImplCopyWith<$Res>
     implements $ModrinthErrorCopyWith<$Res> {
-  factory _$$_ModrinthErrorCopyWith(
-          _$_ModrinthError value, $Res Function(_$_ModrinthError) then) =
-      __$$_ModrinthErrorCopyWithImpl<$Res>;
+  factory _$$ModrinthErrorImplCopyWith(
+          _$ModrinthErrorImpl value, $Res Function(_$ModrinthErrorImpl) then) =
+      __$$ModrinthErrorImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String error, String description});
 }
 
 /// @nodoc
-class __$$_ModrinthErrorCopyWithImpl<$Res>
-    extends _$ModrinthErrorCopyWithImpl<$Res, _$_ModrinthError>
-    implements _$$_ModrinthErrorCopyWith<$Res> {
-  __$$_ModrinthErrorCopyWithImpl(
-      _$_ModrinthError _value, $Res Function(_$_ModrinthError) _then)
+class __$$ModrinthErrorImplCopyWithImpl<$Res>
+    extends _$ModrinthErrorCopyWithImpl<$Res, _$ModrinthErrorImpl>
+    implements _$$ModrinthErrorImplCopyWith<$Res> {
+  __$$ModrinthErrorImplCopyWithImpl(
+      _$ModrinthErrorImpl _value, $Res Function(_$ModrinthErrorImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -92,7 +92,7 @@ class __$$_ModrinthErrorCopyWithImpl<$Res>
     Object? error = null,
     Object? description = null,
   }) {
-    return _then(_$_ModrinthError(
+    return _then(_$ModrinthErrorImpl(
       error: null == error
           ? _value.error
           : error // ignore: cast_nullable_to_non_nullable
@@ -107,11 +107,11 @@ class __$$_ModrinthErrorCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ModrinthError implements _ModrinthError {
-  const _$_ModrinthError({required this.error, required this.description});
+class _$ModrinthErrorImpl implements _ModrinthError {
+  const _$ModrinthErrorImpl({required this.error, required this.description});
 
-  factory _$_ModrinthError.fromJson(Map<String, dynamic> json) =>
-      _$$_ModrinthErrorFromJson(json);
+  factory _$ModrinthErrorImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ModrinthErrorImplFromJson(json);
 
   @override
   final String error;
@@ -127,7 +127,7 @@ class _$_ModrinthError implements _ModrinthError {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ModrinthError &&
+            other is _$ModrinthErrorImpl &&
             (identical(other.error, error) || other.error == error) &&
             (identical(other.description, description) ||
                 other.description == description));
@@ -140,12 +140,12 @@ class _$_ModrinthError implements _ModrinthError {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ModrinthErrorCopyWith<_$_ModrinthError> get copyWith =>
-      __$$_ModrinthErrorCopyWithImpl<_$_ModrinthError>(this, _$identity);
+  _$$ModrinthErrorImplCopyWith<_$ModrinthErrorImpl> get copyWith =>
+      __$$ModrinthErrorImplCopyWithImpl<_$ModrinthErrorImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ModrinthErrorToJson(
+    return _$$ModrinthErrorImplToJson(
       this,
     );
   }
@@ -154,10 +154,10 @@ class _$_ModrinthError implements _ModrinthError {
 abstract class _ModrinthError implements ModrinthError {
   const factory _ModrinthError(
       {required final String error,
-      required final String description}) = _$_ModrinthError;
+      required final String description}) = _$ModrinthErrorImpl;
 
   factory _ModrinthError.fromJson(Map<String, dynamic> json) =
-      _$_ModrinthError.fromJson;
+      _$ModrinthErrorImpl.fromJson;
 
   @override
   String get error;
@@ -165,6 +165,6 @@ abstract class _ModrinthError implements ModrinthError {
   String get description;
   @override
   @JsonKey(ignore: true)
-  _$$_ModrinthErrorCopyWith<_$_ModrinthError> get copyWith =>
+  _$$ModrinthErrorImplCopyWith<_$ModrinthErrorImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

@@ -246,10 +246,10 @@ class _$ProjectCopyWithImpl<$Res, $Val extends Project>
 }
 
 /// @nodoc
-abstract class _$$_ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
-  factory _$$_ProjectCopyWith(
-          _$_Project value, $Res Function(_$_Project) then) =
-      __$$_ProjectCopyWithImpl<$Res>;
+abstract class _$$ProjectImplCopyWith<$Res> implements $ProjectCopyWith<$Res> {
+  factory _$$ProjectImplCopyWith(
+          _$ProjectImpl value, $Res Function(_$ProjectImpl) then) =
+      __$$ProjectImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call(
@@ -285,10 +285,11 @@ abstract class _$$_ProjectCopyWith<$Res> implements $ProjectCopyWith<$Res> {
 }
 
 /// @nodoc
-class __$$_ProjectCopyWithImpl<$Res>
-    extends _$ProjectCopyWithImpl<$Res, _$_Project>
-    implements _$$_ProjectCopyWith<$Res> {
-  __$$_ProjectCopyWithImpl(_$_Project _value, $Res Function(_$_Project) _then)
+class __$$ProjectImplCopyWithImpl<$Res>
+    extends _$ProjectCopyWithImpl<$Res, _$ProjectImpl>
+    implements _$$ProjectImplCopyWith<$Res> {
+  __$$ProjectImplCopyWithImpl(
+      _$ProjectImpl _value, $Res Function(_$ProjectImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -321,7 +322,7 @@ class __$$_ProjectCopyWithImpl<$Res>
     Object? license = null,
     Object? gallery = null,
   }) {
-    return _then(_$_Project(
+    return _then(_$ProjectImpl(
       slug: null == slug
           ? _value.slug
           : slug // ignore: cast_nullable_to_non_nullable
@@ -432,8 +433,8 @@ class __$$_ProjectCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_Project implements _Project {
-  const _$_Project(
+class _$ProjectImpl implements _Project {
+  const _$ProjectImpl(
       {required this.slug,
       required this.title,
       required this.description,
@@ -465,8 +466,8 @@ class _$_Project implements _Project {
         _donationUrls = donationUrls,
         _gallery = gallery;
 
-  factory _$_Project.fromJson(Map<String, dynamic> json) =>
-      _$$_ProjectFromJson(json);
+  factory _$ProjectImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProjectImplFromJson(json);
 
   @override
   final String slug;
@@ -557,7 +558,7 @@ class _$_Project implements _Project {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_Project &&
+            other is _$ProjectImpl &&
             (identical(other.slug, slug) || other.slug == slug) &&
             (identical(other.title, title) || other.title == title) &&
             (identical(other.description, description) ||
@@ -636,12 +637,12 @@ class _$_Project implements _Project {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProjectCopyWith<_$_Project> get copyWith =>
-      __$$_ProjectCopyWithImpl<_$_Project>(this, _$identity);
+  _$$ProjectImplCopyWith<_$ProjectImpl> get copyWith =>
+      __$$ProjectImplCopyWithImpl<_$ProjectImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProjectToJson(
+    return _$$ProjectImplToJson(
       this,
     );
   }
@@ -674,9 +675,9 @@ abstract class _Project implements Project {
       required final int followers,
       required final ProjectStatus status,
       required final ProjectLicense license,
-      required final List<GalleryItem> gallery}) = _$_Project;
+      required final List<GalleryItem> gallery}) = _$ProjectImpl;
 
-  factory _Project.fromJson(Map<String, dynamic> json) = _$_Project.fromJson;
+  factory _Project.fromJson(Map<String, dynamic> json) = _$ProjectImpl.fromJson;
 
   @override
   String get slug;
@@ -732,7 +733,7 @@ abstract class _Project implements Project {
   List<GalleryItem> get gallery;
   @override
   @JsonKey(ignore: true)
-  _$$_ProjectCopyWith<_$_Project> get copyWith =>
+  _$$ProjectImplCopyWith<_$ProjectImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -796,22 +797,22 @@ class _$DonationUrlCopyWithImpl<$Res, $Val extends DonationUrl>
 }
 
 /// @nodoc
-abstract class _$$_DonationUrlCopyWith<$Res>
+abstract class _$$DonationUrlImplCopyWith<$Res>
     implements $DonationUrlCopyWith<$Res> {
-  factory _$$_DonationUrlCopyWith(
-          _$_DonationUrl value, $Res Function(_$_DonationUrl) then) =
-      __$$_DonationUrlCopyWithImpl<$Res>;
+  factory _$$DonationUrlImplCopyWith(
+          _$DonationUrlImpl value, $Res Function(_$DonationUrlImpl) then) =
+      __$$DonationUrlImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String platform, Uri url});
 }
 
 /// @nodoc
-class __$$_DonationUrlCopyWithImpl<$Res>
-    extends _$DonationUrlCopyWithImpl<$Res, _$_DonationUrl>
-    implements _$$_DonationUrlCopyWith<$Res> {
-  __$$_DonationUrlCopyWithImpl(
-      _$_DonationUrl _value, $Res Function(_$_DonationUrl) _then)
+class __$$DonationUrlImplCopyWithImpl<$Res>
+    extends _$DonationUrlCopyWithImpl<$Res, _$DonationUrlImpl>
+    implements _$$DonationUrlImplCopyWith<$Res> {
+  __$$DonationUrlImplCopyWithImpl(
+      _$DonationUrlImpl _value, $Res Function(_$DonationUrlImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -821,7 +822,7 @@ class __$$_DonationUrlCopyWithImpl<$Res>
     Object? platform = null,
     Object? url = null,
   }) {
-    return _then(_$_DonationUrl(
+    return _then(_$DonationUrlImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -840,12 +841,12 @@ class __$$_DonationUrlCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_DonationUrl implements _DonationUrl {
-  const _$_DonationUrl(
+class _$DonationUrlImpl implements _DonationUrl {
+  const _$DonationUrlImpl(
       {required this.id, required this.platform, required this.url});
 
-  factory _$_DonationUrl.fromJson(Map<String, dynamic> json) =>
-      _$$_DonationUrlFromJson(json);
+  factory _$DonationUrlImpl.fromJson(Map<String, dynamic> json) =>
+      _$$DonationUrlImplFromJson(json);
 
   @override
   final String id;
@@ -863,7 +864,7 @@ class _$_DonationUrl implements _DonationUrl {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_DonationUrl &&
+            other is _$DonationUrlImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.platform, platform) ||
                 other.platform == platform) &&
@@ -877,12 +878,12 @@ class _$_DonationUrl implements _DonationUrl {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_DonationUrlCopyWith<_$_DonationUrl> get copyWith =>
-      __$$_DonationUrlCopyWithImpl<_$_DonationUrl>(this, _$identity);
+  _$$DonationUrlImplCopyWith<_$DonationUrlImpl> get copyWith =>
+      __$$DonationUrlImplCopyWithImpl<_$DonationUrlImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_DonationUrlToJson(
+    return _$$DonationUrlImplToJson(
       this,
     );
   }
@@ -892,10 +893,10 @@ abstract class _DonationUrl implements DonationUrl {
   const factory _DonationUrl(
       {required final String id,
       required final String platform,
-      required final Uri url}) = _$_DonationUrl;
+      required final Uri url}) = _$DonationUrlImpl;
 
   factory _DonationUrl.fromJson(Map<String, dynamic> json) =
-      _$_DonationUrl.fromJson;
+      _$DonationUrlImpl.fromJson;
 
   @override
   String get id;
@@ -905,7 +906,7 @@ abstract class _DonationUrl implements DonationUrl {
   Uri get url;
   @override
   @JsonKey(ignore: true)
-  _$$_DonationUrlCopyWith<_$_DonationUrl> get copyWith =>
+  _$$DonationUrlImplCopyWith<_$DonationUrlImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -975,22 +976,22 @@ class _$GalleryItemCopyWithImpl<$Res, $Val extends GalleryItem>
 }
 
 /// @nodoc
-abstract class _$$_GalleryItemCopyWith<$Res>
+abstract class _$$GalleryItemImplCopyWith<$Res>
     implements $GalleryItemCopyWith<$Res> {
-  factory _$$_GalleryItemCopyWith(
-          _$_GalleryItem value, $Res Function(_$_GalleryItem) then) =
-      __$$_GalleryItemCopyWithImpl<$Res>;
+  factory _$$GalleryItemImplCopyWith(
+          _$GalleryItemImpl value, $Res Function(_$GalleryItemImpl) then) =
+      __$$GalleryItemImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({Uri url, bool featured, String description, String created});
 }
 
 /// @nodoc
-class __$$_GalleryItemCopyWithImpl<$Res>
-    extends _$GalleryItemCopyWithImpl<$Res, _$_GalleryItem>
-    implements _$$_GalleryItemCopyWith<$Res> {
-  __$$_GalleryItemCopyWithImpl(
-      _$_GalleryItem _value, $Res Function(_$_GalleryItem) _then)
+class __$$GalleryItemImplCopyWithImpl<$Res>
+    extends _$GalleryItemCopyWithImpl<$Res, _$GalleryItemImpl>
+    implements _$$GalleryItemImplCopyWith<$Res> {
+  __$$GalleryItemImplCopyWithImpl(
+      _$GalleryItemImpl _value, $Res Function(_$GalleryItemImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1001,7 +1002,7 @@ class __$$_GalleryItemCopyWithImpl<$Res>
     Object? description = null,
     Object? created = null,
   }) {
-    return _then(_$_GalleryItem(
+    return _then(_$GalleryItemImpl(
       url: null == url
           ? _value.url
           : url // ignore: cast_nullable_to_non_nullable
@@ -1024,15 +1025,15 @@ class __$$_GalleryItemCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_GalleryItem implements _GalleryItem {
-  const _$_GalleryItem(
+class _$GalleryItemImpl implements _GalleryItem {
+  const _$GalleryItemImpl(
       {required this.url,
       required this.featured,
       required this.description,
       required this.created});
 
-  factory _$_GalleryItem.fromJson(Map<String, dynamic> json) =>
-      _$$_GalleryItemFromJson(json);
+  factory _$GalleryItemImpl.fromJson(Map<String, dynamic> json) =>
+      _$$GalleryItemImplFromJson(json);
 
   @override
   final Uri url;
@@ -1052,7 +1053,7 @@ class _$_GalleryItem implements _GalleryItem {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_GalleryItem &&
+            other is _$GalleryItemImpl &&
             (identical(other.url, url) || other.url == url) &&
             (identical(other.featured, featured) ||
                 other.featured == featured) &&
@@ -1069,12 +1070,12 @@ class _$_GalleryItem implements _GalleryItem {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_GalleryItemCopyWith<_$_GalleryItem> get copyWith =>
-      __$$_GalleryItemCopyWithImpl<_$_GalleryItem>(this, _$identity);
+  _$$GalleryItemImplCopyWith<_$GalleryItemImpl> get copyWith =>
+      __$$GalleryItemImplCopyWithImpl<_$GalleryItemImpl>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_GalleryItemToJson(
+    return _$$GalleryItemImplToJson(
       this,
     );
   }
@@ -1085,10 +1086,10 @@ abstract class _GalleryItem implements GalleryItem {
       {required final Uri url,
       required final bool featured,
       required final String description,
-      required final String created}) = _$_GalleryItem;
+      required final String created}) = _$GalleryItemImpl;
 
   factory _GalleryItem.fromJson(Map<String, dynamic> json) =
-      _$_GalleryItem.fromJson;
+      _$GalleryItemImpl.fromJson;
 
   @override
   Uri get url;
@@ -1100,7 +1101,7 @@ abstract class _GalleryItem implements GalleryItem {
   String get created;
   @override
   @JsonKey(ignore: true)
-  _$$_GalleryItemCopyWith<_$_GalleryItem> get copyWith =>
+  _$$GalleryItemImplCopyWith<_$GalleryItemImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1164,22 +1165,22 @@ class _$ProjectLicenseCopyWithImpl<$Res, $Val extends ProjectLicense>
 }
 
 /// @nodoc
-abstract class _$$_ProjectLicenseCopyWith<$Res>
+abstract class _$$ProjectLicenseImplCopyWith<$Res>
     implements $ProjectLicenseCopyWith<$Res> {
-  factory _$$_ProjectLicenseCopyWith(
-          _$_ProjectLicense value, $Res Function(_$_ProjectLicense) then) =
-      __$$_ProjectLicenseCopyWithImpl<$Res>;
+  factory _$$ProjectLicenseImplCopyWith(_$ProjectLicenseImpl value,
+          $Res Function(_$ProjectLicenseImpl) then) =
+      __$$ProjectLicenseImplCopyWithImpl<$Res>;
   @override
   @useResult
   $Res call({String id, String name, String url});
 }
 
 /// @nodoc
-class __$$_ProjectLicenseCopyWithImpl<$Res>
-    extends _$ProjectLicenseCopyWithImpl<$Res, _$_ProjectLicense>
-    implements _$$_ProjectLicenseCopyWith<$Res> {
-  __$$_ProjectLicenseCopyWithImpl(
-      _$_ProjectLicense _value, $Res Function(_$_ProjectLicense) _then)
+class __$$ProjectLicenseImplCopyWithImpl<$Res>
+    extends _$ProjectLicenseCopyWithImpl<$Res, _$ProjectLicenseImpl>
+    implements _$$ProjectLicenseImplCopyWith<$Res> {
+  __$$ProjectLicenseImplCopyWithImpl(
+      _$ProjectLicenseImpl _value, $Res Function(_$ProjectLicenseImpl) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -1189,7 +1190,7 @@ class __$$_ProjectLicenseCopyWithImpl<$Res>
     Object? name = null,
     Object? url = null,
   }) {
-    return _then(_$_ProjectLicense(
+    return _then(_$ProjectLicenseImpl(
       id: null == id
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -1208,12 +1209,12 @@ class __$$_ProjectLicenseCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_ProjectLicense implements _ProjectLicense {
-  const _$_ProjectLicense(
+class _$ProjectLicenseImpl implements _ProjectLicense {
+  const _$ProjectLicenseImpl(
       {required this.id, required this.name, required this.url});
 
-  factory _$_ProjectLicense.fromJson(Map<String, dynamic> json) =>
-      _$$_ProjectLicenseFromJson(json);
+  factory _$ProjectLicenseImpl.fromJson(Map<String, dynamic> json) =>
+      _$$ProjectLicenseImplFromJson(json);
 
   @override
   final String id;
@@ -1231,7 +1232,7 @@ class _$_ProjectLicense implements _ProjectLicense {
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_ProjectLicense &&
+            other is _$ProjectLicenseImpl &&
             (identical(other.id, id) || other.id == id) &&
             (identical(other.name, name) || other.name == name) &&
             (identical(other.url, url) || other.url == url));
@@ -1244,12 +1245,13 @@ class _$_ProjectLicense implements _ProjectLicense {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$_ProjectLicenseCopyWith<_$_ProjectLicense> get copyWith =>
-      __$$_ProjectLicenseCopyWithImpl<_$_ProjectLicense>(this, _$identity);
+  _$$ProjectLicenseImplCopyWith<_$ProjectLicenseImpl> get copyWith =>
+      __$$ProjectLicenseImplCopyWithImpl<_$ProjectLicenseImpl>(
+          this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_ProjectLicenseToJson(
+    return _$$ProjectLicenseImplToJson(
       this,
     );
   }
@@ -1259,10 +1261,10 @@ abstract class _ProjectLicense implements ProjectLicense {
   const factory _ProjectLicense(
       {required final String id,
       required final String name,
-      required final String url}) = _$_ProjectLicense;
+      required final String url}) = _$ProjectLicenseImpl;
 
   factory _ProjectLicense.fromJson(Map<String, dynamic> json) =
-      _$_ProjectLicense.fromJson;
+      _$ProjectLicenseImpl.fromJson;
 
   @override
   String get id;
@@ -1272,6 +1274,6 @@ abstract class _ProjectLicense implements ProjectLicense {
   String get url;
   @override
   @JsonKey(ignore: true)
-  _$$_ProjectLicenseCopyWith<_$_ProjectLicense> get copyWith =>
+  _$$ProjectLicenseImplCopyWith<_$ProjectLicenseImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

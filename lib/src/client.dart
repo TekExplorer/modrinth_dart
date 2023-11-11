@@ -14,10 +14,11 @@ abstract class ModrinthClient {
   factory ModrinthClient(Dio dio, {String? baseUrl}) = _ModrinthClient;
 
   factory ModrinthClient.production({
+    Dio? dio,
     String userAgent = _defaultUserAgent,
     bool log = false,
   }) {
-    final dio = Dio();
+    dio ??= Dio();
     if (log) dio.interceptors.add(LogInterceptor());
     dio.options
       ..headers[HttpHeaders.userAgentHeader] = userAgent
@@ -61,7 +62,7 @@ abstract class ModrinthClient {
     /// A list of filters relating to the properties of a project. Use filters when there isn't an available facet for your needs. More information
     @Deprecated('Not recommended by Modrinth, Use facets instead')
     @Query('filters')
-        String? filters,
+    String? filters,
   });
 
   @GET('/project/{id}')

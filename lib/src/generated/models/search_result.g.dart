@@ -6,8 +6,8 @@ part of '../../models/search_result.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_SearchResults _$$_SearchResultsFromJson(Map<String, dynamic> json) =>
-    _$_SearchResults(
+_$SearchResultsImpl _$$SearchResultsImplFromJson(Map<String, dynamic> json) =>
+    _$SearchResultsImpl(
       hits: (json['hits'] as List<dynamic>)
           .map((e) => SearchResultItem.fromJson(e as Map<String, dynamic>))
           .toList(),
@@ -16,7 +16,7 @@ _$_SearchResults _$$_SearchResultsFromJson(Map<String, dynamic> json) =>
       totalHits: json['total_hits'] as int,
     );
 
-Map<String, dynamic> _$$_SearchResultsToJson(_$_SearchResults instance) =>
+Map<String, dynamic> _$$SearchResultsImplToJson(_$SearchResultsImpl instance) =>
     <String, dynamic>{
       'hits': instance.hits.map((e) => e.toJson()).toList(),
       'offset': instance.offset,
@@ -24,8 +24,9 @@ Map<String, dynamic> _$$_SearchResultsToJson(_$_SearchResults instance) =>
       'total_hits': instance.totalHits,
     };
 
-_$_SearchResultItem _$$_SearchResultItemFromJson(Map<String, dynamic> json) =>
-    _$_SearchResultItem(
+_$SearchResultItemImpl _$$SearchResultItemImplFromJson(
+        Map<String, dynamic> json) =>
+    _$SearchResultItemImpl(
       slug: json['slug'] as String,
       title: json['title'] as String,
       description: json['description'] as String,
@@ -55,7 +56,8 @@ _$_SearchResultItem _$$_SearchResultItemFromJson(Map<String, dynamic> json) =>
           .toList(),
     );
 
-Map<String, dynamic> _$$_SearchResultItemToJson(_$_SearchResultItem instance) =>
+Map<String, dynamic> _$$SearchResultItemImplToJson(
+        _$SearchResultItemImpl instance) =>
     <String, dynamic>{
       'slug': instance.slug,
       'title': instance.title,

@@ -40,7 +40,7 @@ class _ModrinthClient implements ModrinthClient {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<SearchResults>(Options(
       method: 'GET',
@@ -63,7 +63,7 @@ class _ModrinthClient implements ModrinthClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result =
         await _dio.fetch<Map<String, dynamic>>(_setStreamType<Project>(Options(
       method: 'GET',
@@ -86,7 +86,7 @@ class _ModrinthClient implements ModrinthClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'ids': ids};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result =
         await _dio.fetch<List<dynamic>>(_setStreamType<List<Project>>(Options(
       method: 'GET',
@@ -111,7 +111,7 @@ class _ModrinthClient implements ModrinthClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<DependenciesResult>(Options(
       method: 'GET',
@@ -144,7 +144,7 @@ class _ModrinthClient implements ModrinthClient {
     };
     queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<ProjectVersion>>(Options(
       method: 'GET',
@@ -169,7 +169,7 @@ class _ModrinthClient implements ModrinthClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<ProjectVersion>(Options(
       method: 'GET',
@@ -192,7 +192,7 @@ class _ModrinthClient implements ModrinthClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'ids': ids};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<List<dynamic>>(_setStreamType<List<ProjectVersion>>(Options(
       method: 'GET',
@@ -220,7 +220,7 @@ class _ModrinthClient implements ModrinthClient {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'algorithm': algorithm.toJson()};
     final _headers = <String, dynamic>{};
-    final _data = <String, dynamic>{};
+    final Map<String, dynamic>? _data = null;
     final _result = await _dio
         .fetch<Map<String, dynamic>>(_setStreamType<ProjectVersion>(Options(
       method: 'GET',
