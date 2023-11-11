@@ -22,12 +22,12 @@ class _ModrinthClient implements ModrinthClient {
 
   @override
   Future<SearchResults> search({
-    required query,
-    facets,
-    sort,
-    offset,
-    limit,
-    filters,
+    required String query,
+    SearchFacets? facets,
+    SearchIndex? sort,
+    int? offset,
+    int? limit,
+    String? filters,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -53,13 +53,17 @@ class _ModrinthClient implements ModrinthClient {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = SearchResults.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<Project> getProject(id) async {
+  Future<Project> getProject(String id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -76,13 +80,17 @@ class _ModrinthClient implements ModrinthClient {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = Project.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<List<Project>> getProjects(ids) async {
+  Future<List<Project>> getProjects(List<String> ids) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'ids': ids};
     final _headers = <String, dynamic>{};
@@ -99,7 +107,11 @@ class _ModrinthClient implements ModrinthClient {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) => Project.fromJson(i as Map<String, dynamic>))
         .toList();
@@ -107,7 +119,7 @@ class _ModrinthClient implements ModrinthClient {
   }
 
   @override
-  Future<DependenciesResult> getProjectDependencies(id) async {
+  Future<DependenciesResult> getProjectDependencies(String id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -124,17 +136,21 @@ class _ModrinthClient implements ModrinthClient {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = DependenciesResult.fromJson(_result.data!);
     return value;
   }
 
   @override
   Future<List<ProjectVersion>> getProjectVersions({
-    required slug,
-    loaders,
-    gameVersions,
-    featured,
+    required String slug,
+    ListQuery? loaders,
+    ListQuery? gameVersions,
+    bool? featured,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -157,7 +173,11 @@ class _ModrinthClient implements ModrinthClient {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) => ProjectVersion.fromJson(i as Map<String, dynamic>))
         .toList();
@@ -165,7 +185,7 @@ class _ModrinthClient implements ModrinthClient {
   }
 
   @override
-  Future<ProjectVersion> getVersion(id) async {
+  Future<ProjectVersion> getVersion(String id) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -182,13 +202,17 @@ class _ModrinthClient implements ModrinthClient {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ProjectVersion.fromJson(_result.data!);
     return value;
   }
 
   @override
-  Future<List<ProjectVersion>> getVersions(ids) async {
+  Future<List<ProjectVersion>> getVersions(List<String> ids) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'ids': ids};
     final _headers = <String, dynamic>{};
@@ -205,7 +229,11 @@ class _ModrinthClient implements ModrinthClient {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     var value = _result.data!
         .map((dynamic i) => ProjectVersion.fromJson(i as Map<String, dynamic>))
         .toList();
@@ -214,8 +242,8 @@ class _ModrinthClient implements ModrinthClient {
 
   @override
   Future<ProjectVersion> getVersionFromHash(
-    hash,
-    algorithm,
+    String hash,
+    HashAlgorithm algorithm,
   ) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'algorithm': algorithm.toJson()};
@@ -233,7 +261,11 @@ class _ModrinthClient implements ModrinthClient {
               queryParameters: queryParameters,
               data: _data,
             )
-            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+            .copyWith(
+                baseUrl: _combineBaseUrls(
+              _dio.options.baseUrl,
+              baseUrl,
+            ))));
     final value = ProjectVersion.fromJson(_result.data!);
     return value;
   }
@@ -249,5 +281,22 @@ class _ModrinthClient implements ModrinthClient {
       }
     }
     return requestOptions;
+  }
+
+  String _combineBaseUrls(
+    String dioBaseUrl,
+    String? baseUrl,
+  ) {
+    if (baseUrl == null || baseUrl.trim().isEmpty) {
+      return dioBaseUrl;
+    }
+
+    final url = Uri.parse(baseUrl);
+
+    if (url.isAbsolute) {
+      return url.toString();
+    }
+
+    return Uri.parse(dioBaseUrl).resolveUri(url).toString();
   }
 }
