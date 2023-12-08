@@ -28,6 +28,9 @@ class _ModrinthClient implements ModrinthClient {
     int? offset,
     int? limit,
     String? filters,
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -52,6 +55,9 @@ class _ModrinthClient implements ModrinthClient {
               '/search',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(
                 baseUrl: _combineBaseUrls(
@@ -63,9 +69,15 @@ class _ModrinthClient implements ModrinthClient {
   }
 
   @override
-  Future<Project> getProject(String id) async {
+  Future<Project> getProject(
+    String id, {
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result =
@@ -79,6 +91,9 @@ class _ModrinthClient implements ModrinthClient {
               '/project/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(
                 baseUrl: _combineBaseUrls(
@@ -90,9 +105,15 @@ class _ModrinthClient implements ModrinthClient {
   }
 
   @override
-  Future<List<Project>> getProjects(List<String> ids) async {
+  Future<List<Project>> getProjects(
+    List<String> ids, {
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'ids': ids};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result =
@@ -106,6 +127,9 @@ class _ModrinthClient implements ModrinthClient {
               '/projects',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(
                 baseUrl: _combineBaseUrls(
@@ -119,9 +143,15 @@ class _ModrinthClient implements ModrinthClient {
   }
 
   @override
-  Future<DependenciesResult> getProjectDependencies(String id) async {
+  Future<DependenciesResult> getProjectDependencies(
+    String id, {
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
@@ -135,6 +165,9 @@ class _ModrinthClient implements ModrinthClient {
               '/project/${id}/dependencies',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(
                 baseUrl: _combineBaseUrls(
@@ -151,6 +184,9 @@ class _ModrinthClient implements ModrinthClient {
     ListQuery? loaders,
     ListQuery? gameVersions,
     bool? featured,
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
   }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{
@@ -172,6 +208,9 @@ class _ModrinthClient implements ModrinthClient {
               '/project/${slug}/version',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(
                 baseUrl: _combineBaseUrls(
@@ -185,9 +224,15 @@ class _ModrinthClient implements ModrinthClient {
   }
 
   @override
-  Future<ProjectVersion> getVersion(String id) async {
+  Future<ProjectVersion> getVersion(
+    String id, {
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
@@ -201,6 +246,9 @@ class _ModrinthClient implements ModrinthClient {
               '/version/${id}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(
                 baseUrl: _combineBaseUrls(
@@ -212,9 +260,15 @@ class _ModrinthClient implements ModrinthClient {
   }
 
   @override
-  Future<List<ProjectVersion>> getVersions(List<String> ids) async {
+  Future<List<ProjectVersion>> getVersions(
+    List<String> ids, {
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
+  }) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'ids': ids};
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
@@ -228,6 +282,9 @@ class _ModrinthClient implements ModrinthClient {
               '/version',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(
                 baseUrl: _combineBaseUrls(
@@ -243,10 +300,18 @@ class _ModrinthClient implements ModrinthClient {
   @override
   Future<ProjectVersion> getVersionFromHash(
     String hash,
-    HashAlgorithm algorithm,
-  ) async {
+    HashAlgorithm algorithm, {
+    bool? returnMultiple,
+    CancelToken? cancelToken,
+    void Function(int, int)? onSendProgress,
+    void Function(int, int)? onReceiveProgress,
+  }) async {
     const _extra = <String, dynamic>{};
-    final queryParameters = <String, dynamic>{r'algorithm': algorithm.toJson()};
+    final queryParameters = <String, dynamic>{
+      r'algorithm': algorithm.toJson(),
+      r'multiple': returnMultiple,
+    };
+    queryParameters.removeWhere((k, v) => v == null);
     final _headers = <String, dynamic>{};
     final Map<String, dynamic>? _data = null;
     final _result = await _dio
@@ -260,6 +325,9 @@ class _ModrinthClient implements ModrinthClient {
               '/version_file/${hash}',
               queryParameters: queryParameters,
               data: _data,
+              cancelToken: cancelToken,
+              onSendProgress: onSendProgress,
+              onReceiveProgress: onReceiveProgress,
             )
             .copyWith(
                 baseUrl: _combineBaseUrls(

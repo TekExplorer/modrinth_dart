@@ -1,5 +1,10 @@
 # Modrinth Dart
 
+## 0.0.4
+
+- Update dependencies and regenerate
+- Add `cancelToken` and progress tracker parameters
+
 ## 0.0.3
 
 - Fix `ListQuery`

@@ -6,10 +6,16 @@ import 'package:retrofit/retrofit.dart';
 
 part 'generated/client.g.dart';
 
+extension ExposedModrinthDio on ModrinthClient {
+  Dio get dio => _dio;
+}
+
 /// Pterodactyl API Client
 @RestApi(baseUrl: 'https://api.modrinth.com/v2')
 abstract class ModrinthClient {
   static const _defaultUserAgent = 'ModrinthDart/v1';
+
+  Dio get _dio;
 
   factory ModrinthClient(Dio dio, {String? baseUrl}) = _ModrinthClient;
 
@@ -28,10 +34,11 @@ abstract class ModrinthClient {
   }
 
   factory ModrinthClient.staging({
+    Dio? dio,
     String userAgent = _defaultUserAgent,
     bool log = false,
   }) {
-    final dio = Dio();
+    dio ??= Dio();
     if (log) dio.interceptors.add(LogInterceptor());
     dio.options
       ..headers[HttpHeaders.userAgentHeader] = userAgent
@@ -63,25 +70,41 @@ abstract class ModrinthClient {
     @Deprecated('Not recommended by Modrinth, Use facets instead')
     @Query('filters')
     String? filters,
+    //
+    @CancelRequest() CancelToken? cancelToken,
+    @SendProgress() ProgressCallback? onSendProgress,
+    @ReceiveProgress() ProgressCallback? onReceiveProgress,
   });
 
   @GET('/project/{id}')
   Future<Project> getProject(
     /// The slug or id of the project
-    @Path('id') String id,
-  );
+    @Path('id') String id, {
+    //
+    @CancelRequest() CancelToken? cancelToken,
+    @SendProgress() ProgressCallback? onSendProgress,
+    @ReceiveProgress() ProgressCallback? onReceiveProgress,
+  });
 
   @GET('/projects')
   Future<List<Project>> getProjects(
     /// The slugs or ids of the projects
-    @Query('ids') List<String> ids,
-  );
+    @Query('ids') List<String> ids, {
+    //
+    @CancelRequest() CancelToken? cancelToken,
+    @SendProgress() ProgressCallback? onSendProgress,
+    @ReceiveProgress() ProgressCallback? onReceiveProgress,
+  });
 
   @GET('/project/{id}/dependencies')
   Future<DependenciesResult> getProjectDependencies(
     /// The slug or id of the project
-    @Path('id') String id,
-  );
+    @Path('id') String id, {
+    //
+    @CancelRequest() CancelToken? cancelToken,
+    @SendProgress() ProgressCallback? onSendProgress,
+    @ReceiveProgress() ProgressCallback? onReceiveProgress,
+  });
 
   /// [slug] The slug or id of the project
   @GET('/project/{id}/version')
@@ -90,24 +113,42 @@ abstract class ModrinthClient {
     @Query('loaders') ListQuery? loaders,
     @Query('game_versions') ListQuery? gameVersions,
     @Query('featured') bool? featured,
+    //
+    @CancelRequest() CancelToken? cancelToken,
+    @SendProgress() ProgressCallback? onSendProgress,
+    @ReceiveProgress() ProgressCallback? onReceiveProgress,
   });
 
   @GET('/version/{id}')
   Future<ProjectVersion> getVersion(
     /// The slug or id of the version
-    @Path('id') String id,
-  );
+    @Path('id') String id, {
+    //
+    @CancelRequest() CancelToken? cancelToken,
+    @SendProgress() ProgressCallback? onSendProgress,
+    @ReceiveProgress() ProgressCallback? onReceiveProgress,
+  });
 
   @GET('/version')
   Future<List<ProjectVersion>> getVersions(
     /// The slug or id of the version
-    @Query('ids') List<String> ids,
-  );
+    @Query('ids') List<String> ids, {
+    //
+    @CancelRequest() CancelToken? cancelToken,
+    @SendProgress() ProgressCallback? onSendProgress,
+    @ReceiveProgress() ProgressCallback? onReceiveProgress,
+  });
 
   @GET('/version_file/{hash}')
   Future<ProjectVersion> getVersionFromHash(
     /// The slug or id of the version
     @Path('hash') String hash,
-    @Query('algorithm') HashAlgorithm algorithm,
-  );
+    @Query('algorithm') HashAlgorithm algorithm, {
+    /// Weather to return multiple versions
+    @Query('multiple') bool? returnMultiple,
+    //
+    @CancelRequest() CancelToken? cancelToken,
+    @SendProgress() ProgressCallback? onSendProgress,
+    @ReceiveProgress() ProgressCallback? onReceiveProgress,
+  });
 }
